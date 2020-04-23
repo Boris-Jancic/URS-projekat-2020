@@ -1,4 +1,4 @@
-from dekoratori.dekoratori import isgreaterthan, wrapisinstance, isinrange
+from dekoratori.dekoratori import isgreaterthan, wrapisinstance, isinrange, isnotempty
 from modeli.identifikacija import Identifikacija
 
 
@@ -62,6 +62,7 @@ class Automobil(Identifikacija):
 
     @model.setter
     @wrapisinstance(str)
+    @isnotempty
     def model(self, model):
         self._model = model
 
