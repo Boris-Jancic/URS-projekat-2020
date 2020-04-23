@@ -1,3 +1,5 @@
+from dekoratori.dekoratori import wrapisinstance
+
 class Identifikacija:
     def __init__(self, oznaka: str):
         self.oznaka = oznaka
@@ -7,8 +9,6 @@ class Identifikacija:
         return self._oznaka
 
     @oznaka.setter
+    @wrapisinstance(str)
     def oznaka(self, vrednost):
-        if isinstance(vrednost, str):
-            self._oznaka = vrednost
-        else:
-            raise ValueError("Zadata vrednost nije ispravna!")
+        self._oznaka = vrednost
