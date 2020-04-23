@@ -1,6 +1,6 @@
 class Identifikacija:
     def __init__(self, oznaka: str):
-        self._oznaka = oznaka
+        self.oznaka = oznaka
     
     @property
     def oznaka(self):
