@@ -25,3 +25,11 @@ def isinrange(argument):
             return function(*args)
         return wrapper
     return main_wrapper
+
+def isnotempty(function):
+    def wrapper(*args):
+        if isinstance(args[1], str):
+            if not args[1]:
+                raise ValueError(f'Prazna vrednost nije dozvoljena!')
+        return function(*args)
+    return wrapper
