@@ -3,9 +3,9 @@ from modeli.identifikacija import Identifikacija
 class Kamion(Identifikacija):
     def __init__(self,oznaka: str, model: str, max_tezina: float, broj_automobila: int):
         super().__init__(oznaka)
-        self._model = model
-        self._max_tezina = max_tezina
-        self._broj_automobila = broj_automobila
+        self.model = model
+        self.max_tezina = max_tezina
+        self.broj_automobila = broj_automobila
 
     @property
     def model(self):
@@ -13,10 +13,10 @@ class Kamion(Identifikacija):
 
     @model.setter
     def model(self, model):
-        if (model != ""):
-            self._model = model
-        else:
+        if not model:
             raise ValueError("Zadata vrednost je prazan")
+        self._model = model
+
 
 
     @property
@@ -25,10 +25,10 @@ class Kamion(Identifikacija):
 
     @max_tezina.setter
     def max_tezina(self, max_tezina):
-        if(max_tezina is not type(float) and max_tezina > 0):
-            self._max_tezina = max_tezina
-        else:
+        if(isinstance(max_tezina , int) or max_tezina < 0):
             raise ValueError("Zadata vrednost je manja od nule ili nije decimalna vrednost")
+        self._max_tezina = max_tezina
+
 
 
     @property
@@ -37,12 +37,10 @@ class Kamion(Identifikacija):
 
     @broj_automobila.setter
     def broj_automobila(self, broj_automobila):
-        if(broj_automobila is not type(int) and broj_automobila >= 1 and broj_automobila <= 6):
-            self.broj_automobila = broj_automobila
-        else:
+        if(broj_automobila <= 1 or broj_automobila >= 6):
             raise ValueError("Kamion moze podrzati 1-6 automobila")
-    
+        self._broj_automobila = broj_automobila
+
     
     def __str__(self):
         return "{0}, {1}, {2}, {3}".format(self._oznaka, self._model, self._max_tezina, self._broj_automobila)
-        
