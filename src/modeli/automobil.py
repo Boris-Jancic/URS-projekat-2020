@@ -3,7 +3,8 @@ from modeli.identifikacija import Identifikacija
 
 
 class Automobil(Identifikacija):
-    def __init__(self, oznaka: float, duzina: float, sirina: float, visina: float, tezina: float, model: str, broj_vrata: int):
+    def __init__(self, oznaka: str, duzina: float, sirina: float, visina: float,
+                 tezina: float, model: str, broj_vrata: int):
         super().__init__(oznaka)
         self.duzina = duzina
         self.sirina = sirina
