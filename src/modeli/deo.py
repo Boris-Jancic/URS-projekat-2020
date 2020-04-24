@@ -1,6 +1,6 @@
 from modeli.identifikacija import Identifikacija
 
-class Delovi(Identifikacija):
+class Deo(Identifikacija):
     def __init__(self, oznaka: str, naziv: str, duzina: float, sirina: float, visina: float, \
                         tezina : float, opis: str, broj: int, pod_delovi: int, materijal: str ):
         super().__init__(oznaka)
