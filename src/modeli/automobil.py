@@ -15,14 +15,14 @@ class Automobil(Identifikacija):
 
     def __str__(self):
         return f"Automobil modela {self._model} dimenzija(d,s,v)={self._duzina}x{self._sirina}x{self._visina}m, " + \
-            f"tezine {self._tezina}kg sa {self._broj_vrata} vrata"
+               f"tezine {self._tezina}kg sa {self._broj_vrata} vrata"
 
     @property
     def duzina(self):
         return self._duzina
 
     @duzina.setter
-    @wrapisinstance((float,int))
+    @wrapisinstance((float, int))
     @isgreaterthan(0)
     def duzina(self, duzina):
         self._duzina = duzina
@@ -32,7 +32,7 @@ class Automobil(Identifikacija):
         return self._sirina
 
     @sirina.setter
-    @wrapisinstance((float,int))
+    @wrapisinstance((float, int))
     @isgreaterthan(0)
     def sirina(self, sirina):
         self._sirina = sirina
@@ -42,7 +42,7 @@ class Automobil(Identifikacija):
         return self._visina
 
     @visina.setter
-    @wrapisinstance((float,int))
+    @wrapisinstance((float, int))
     @isgreaterthan(0)
     def visina(self, visina):
         self._visina = visina
@@ -52,7 +52,7 @@ class Automobil(Identifikacija):
         return self._tezina
 
     @tezina.setter
-    @wrapisinstance((float,int))
+    @wrapisinstance((float, int))
     @isgreaterthan(0)
     def tezina(self, tezina):
         self._tezina = tezina
@@ -73,6 +73,6 @@ class Automobil(Identifikacija):
 
     @broj_vrata.setter
     @wrapisinstance(int)
-    @isinrange((1,5))
+    @isinrange((1, 5))
     def broj_vrata(self, broj_vrata):
         self._broj_vrata = broj_vrata
