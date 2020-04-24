@@ -41,9 +41,9 @@ class Radnik(Identifikacija):
     
     @jmbg.setter 
     def jmbg(self,value):
-        if not isinstance(value, int):
-            raise ValueError("U JMBG nema tekstualnih vrednosti! ")
-        if len(str(value)) != 13:
+        if not isinstance(value, str):
+            raise ValueError("JMBG mora biti tekstualna vrednost ")
+        if len(value) != 13:
             raise ValueError("JMBG se mora sastojati od tacno 13 cifara!")
         self._jmbg = value 
         
