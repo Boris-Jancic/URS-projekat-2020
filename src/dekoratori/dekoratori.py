@@ -4,8 +4,11 @@ def isgreaterthan(argument):
             if args[1] <= argument:
                 raise ValueError('Neispravna vrednost')
             return function(*args)
+
         return wrapper
+
     return main_wrapper
+
 
 def wrapisinstance(argument):
     def main_wrapper(function):
@@ -14,17 +17,23 @@ def wrapisinstance(argument):
                 return function(*args)
             else:
                 raise TypeError(f'Nepravilan tip argumenta: {type(args[1])}, ocekuje se {argument}')
+
         return wrapper
+
     return main_wrapper
+
 
 def isinrange(argument):
     def main_wrapper(function):
         def wrapper(*args):
-            if not(argument[0] <= args[1] <= argument[1]):
+            if not (argument[0] <= args[1] <= argument[1]):
                 raise ValueError('Neispravna vrednost')
             return function(*args)
+
         return wrapper
+
     return main_wrapper
+
 
 def isnotempty(function):
     def wrapper(*args):
@@ -32,4 +41,5 @@ def isnotempty(function):
             if not args[1]:
                 raise ValueError(f'Prazna vrednost nije dozvoljena!')
         return function(*args)
+
     return wrapper
