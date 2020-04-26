@@ -1,6 +1,7 @@
 from helper.shell import shell_clear as cls
 from getpass import getpass
 
+
 def isgreaterthan(argument):
     def main_wrapper(function):
         def wrapper(*args):
@@ -42,7 +43,7 @@ def isnotempty(function):
     def wrapper(*args):
         if isinstance(args[1], str):
             if not args[1]:
-                raise ValueError(f'Prazna vrednost nije dozvoljena!')
+                raise ValueError('Prazna vrednost nije dozvoljena!')
         return function(*args)
 
     return wrapper
