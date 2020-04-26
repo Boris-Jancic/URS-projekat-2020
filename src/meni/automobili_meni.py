@@ -1,10 +1,10 @@
-from dekoratori.dekoratori import cleanshell
+from dekoratori.dekoratori import cleanshell, cleanshell_noinput
 from helper.unos import unos as _unos
 
 __lista_automobila = []
 
 
-@cleanshell
+@cleanshell_noinput
 def prikaz_menija(lista_automobila) -> None:
     global __lista_automobila
     __lista_automobila = lista_automobila
