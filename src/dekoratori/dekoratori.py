@@ -1,3 +1,6 @@
+from helper.shell import shell_clear as cls
+from getpass import getpass
+
 def isgreaterthan(argument):
     def main_wrapper(function):
         def wrapper(*args):
@@ -41,5 +44,17 @@ def isnotempty(function):
             if not args[1]:
                 raise ValueError(f'Prazna vrednost nije dozvoljena!')
         return function(*args)
+
+    return wrapper
+
+
+def cleanshell(function):
+    def wrapper(*args, **kw):
+        cls()
+        ret_func = function(*args, **kw)
+        print()
+        x = getpass("[pritisnite dugme `enter` za nastavak]")
+        cls()
+        return ret_func
 
     return wrapper
