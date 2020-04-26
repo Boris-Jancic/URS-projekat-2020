@@ -59,3 +59,12 @@ def cleanshell(function):
         return ret_func
 
     return wrapper
+
+def cleanshell_noinput(function):
+    def wrapper(*args, **kw):
+        cls()
+        ret_func = function(*args, **kw)
+        cls()
+        return ret_func
+
+    return wrapper
