@@ -1,3 +1,6 @@
+from helper.unos import unos as _unos
+
+
 def prikaz():
     opcija = ""
     
@@ -20,8 +23,6 @@ def prikaz():
         if opcija == "7":
             _sort_po_datumu()
          
-def _unos():
-    return input("Izaberite jednu od opcija: ")
 
 def _opcije():
     print("[1] Prikaz svih radnika ")

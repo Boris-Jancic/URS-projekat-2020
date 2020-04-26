@@ -1,4 +1,5 @@
 from dekoratori.dekoratori import cleanshell
+from helper.unos import unos as _unos
 
 __lista_automobila = []
 
@@ -37,10 +38,6 @@ def _prikaz_opcija() -> None:
     print("[6] Sortiranje automobila po tezini")
     print("[7] Prikaz delova automobila")
     print("[q] Izlaz iz menija")
-
-
-def _unos() -> str:
-    return input("Izaberite jednu od opcija: ")
 
 
 @cleanshell

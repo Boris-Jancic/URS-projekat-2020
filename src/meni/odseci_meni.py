@@ -1,3 +1,6 @@
+from helper.unos import unos as _unos
+
+
 def prikaz():
     
     opcija = ""
@@ -23,8 +26,6 @@ def prikaz():
         if opcija == "8":
             _prikaz_delova_odseka()
             
-def _unos():
-    return input("Izaberite jednu od opcija: ")
 
 
 def _opcije():
