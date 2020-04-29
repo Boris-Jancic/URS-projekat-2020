@@ -1,6 +1,7 @@
 from dekoratori.dekoratori import cleanshell_noinput
 from helper.unos import unos as _unos
 
+
 @cleanshell_noinput
 def prikaz_menija() -> None:
     opcija = ""
@@ -35,6 +36,8 @@ def _rad_sa_odsecima():
 
 @cleanshell_noinput
 def _rad_sa_delovima():
+    from meni.deo_meni import prikaz as prikazi_meni
+    prikazi_meni()
     pass
 
 
@@ -46,6 +49,8 @@ def _rad_sa_automobilima(lista_automobila):
 
 @cleanshell_noinput
 def _rad_sa_kamionima():
+    from meni.kamion_meni import prikaz as prikazi_meni
+    prikazi_meni()
     pass
 
 
