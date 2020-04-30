@@ -4,7 +4,7 @@ from modeli.identifikacija import Identifikacija
 
 class Automobil(Identifikacija):
     def __init__(self, oznaka: str, duzina: float, sirina: float, visina: float,
-                 tezina: float, model: str, broj_vrata: int):
+                 tezina: float, model: str, broj_vrata: int, kamion_id: str):
         super().__init__(oznaka)
         self.duzina = duzina
         self.sirina = sirina
@@ -12,10 +12,21 @@ class Automobil(Identifikacija):
         self.tezina = tezina
         self.model = model
         self.broj_vrata = broj_vrata
+        self.kamion_id = kamion_id
 
     def __str__(self):
         return f"Automobil modela {self._model} dimenzija(d,s,v)={self._duzina}x{self._sirina}x{self._visina}m, " + \
                f"tezine {self._tezina}kg sa {self._broj_vrata} vrata"
+
+    @property
+    def kamion_id(self):
+        return self._kamion_id
+
+    @kamion_id.setter
+    @wrapisinstance(str)
+    @isnotempty
+    def kamion_id(self, value):
+        self._kamion_id = value
 
     @property
     def duzina(self):

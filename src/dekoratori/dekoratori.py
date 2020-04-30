@@ -60,6 +60,7 @@ def cleanshell(function):
 
     return wrapper
 
+
 def cleanshell_noinput(function):
     def wrapper(*args, **kw):
         cls()
