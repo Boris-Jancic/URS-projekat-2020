@@ -12,11 +12,30 @@ class Automobil(Identifikacija):
         self.tezina = tezina
         self.model = model
         self.broj_vrata = broj_vrata
+        self._kamion = None
         self.kamion_id = kamion_id
 
     def __str__(self):
         return f"Automobil modela {self._model} dimenzija(d,s,v)={self._duzina}x{self._sirina}x{self._visina}m, " + \
                f"tezine {self._tezina}kg sa {self._broj_vrata} vrata"
+
+    def unlink_kamion(self):
+        self.kamion.lista_automobila.discard(self)
+
+    @property
+    def kamion(self):
+        return self._kamion
+
+    @kamion.setter
+    def kamion(self, _kamion):
+        if _kamion is not None:
+            if self._kamion is not None:
+                self._kamion.lista_automobila.discard(self)
+            self._kamion = _kamion
+            _kamion.lista_automobila.add(self)
+        else:
+            self._kamion.lista_automobila.discard(self)
+            self._kamion = None
 
     @property
     def kamion_id(self):
