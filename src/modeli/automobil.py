@@ -14,13 +14,26 @@ class Automobil(Identifikacija):
         self.broj_vrata = broj_vrata
         self._kamion = None
         self.kamion_id = kamion_id
+        self._lista_delova = set()
 
     def __str__(self):
         return f"Automobil modela {self._model} dimenzija(d,s,v)={self._duzina}x{self._sirina}x{self._visina}m, " + \
                f"tezine {self._tezina}kg sa {self._broj_vrata} vrata"
 
+    def link_deo(self, deo):
+        if deo is not None:
+            deo.automobil = self
+
+    def unlink_deo(self, deo):
+        if not (deo is None) and deo in self.lista_delova:
+            deo.automobil = None
+
     def unlink_kamion(self):
         self.kamion.lista_automobila.discard(self)
+
+    @property
+    def lista_delova(self):
+        return self._lista_delova
 
     @property
     def kamion(self):

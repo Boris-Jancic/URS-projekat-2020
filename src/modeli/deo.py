@@ -15,13 +15,32 @@ class Deo(Identifikacija):
         self.broj = broj
         self.pod_delovi = pod_delovi
         self.materijal = materijal
+        self._automobil = None
 
     def __str__(self):
-        return "{0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}, {8}, {9}".format(self._oznaka, \
-                                                                         self._naziv, self._duzina, self._sirina,
+        return "{0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}, {8}, {9}".format(self._oznaka, self._naziv,
+                                                                         self._duzina, self._sirina,
                                                                          self._visina, self._tezina,
                                                                          self._opis, self._broj, self._pod_delovi,
                                                                          self._materijal)
+
+    def unlink_automobil(self):
+        self.automobil.lista_delova.discard(self)
+
+    @property
+    def automobil(self):
+        return self._automobil
+
+    @automobil.setter
+    def automobil(self, _automobil):
+        if _automobil is not None:
+            if self._automobil is not None:
+                self._automobil.lista_delova.discard(self)
+            self._automobil = _automobil
+            _automobil.lista_delova.add(self)
+        else:
+            self._automobil.lista_delova.discard(self)
+            self._automobil = None
 
     @property
     def naziv(self):
