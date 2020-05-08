@@ -14,9 +14,8 @@ class Kamion(Identifikacija):
         if automobil is not None:
             automobil.kamion = self
 
-    @staticmethod
-    def unlink_automobil(automobil):
-        if not (automobil is None):
+    def unlink_automobil(self, automobil):
+        if not (automobil is None) and automobil in self.lista_automobila:
             automobil.kamion = None
 
     @property
