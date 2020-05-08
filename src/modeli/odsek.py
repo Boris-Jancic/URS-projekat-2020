@@ -3,11 +3,29 @@ from dekoratori.dekoratori import  wrapisinstance, isnotempty
 
 class Odsek(Identifikacija):
     
-    def __init__(self, oznaka, ime, max_br_radnika, opis):
+    def __init__(self, oznaka, ime, max_br_radnika, opis, lista_radnika, lista_delova):
         super().__init__(oznaka)
         self.ime = ime 
         self.max_br_radnika = max_br_radnika 
         self.opis = opis 
+        self.lista_radnika = []
+        self.lista_delova = []
+        
+    @property
+    def lista_radnika(self):
+        return self._lista_radnika 
+    
+    @lista_radnika.setter 
+    def lista_radnika(self, value):
+        self._lista_radnika = value   
+        
+    @property 
+    def lista_delova(self):
+        return self._lista_delova 
+    
+    @lista_delova.setter 
+    def lista_delova(self, value):
+        self._lista_delova = value   
         
     @property 
     def ime(self):

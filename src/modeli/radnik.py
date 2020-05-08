@@ -4,13 +4,23 @@ from dekoratori.dekoratori import  wrapisinstance, isnotempty
 
 class Radnik(Identifikacija):
     
-    def __init__(self,oznaka, ime, prezime, jmbg, datum_rodjenja, mesto_rodjenja, drzava_rodjenja):
+    def __init__(self,oznaka, ime, prezime, jmbg, datum_rodjenja, mesto_rodjenja, drzava_rodjenja, odsek):
         super().__init__(oznaka)
         self.ime = ime 
         self.prezime = prezime 
         self.jmbg = jmbg 
         self.mesto_rodjenja = mesto_rodjenja 
         self.drzava_rodjenja = drzava_rodjenja 
+        self.odsek = odsek
+        
+        
+    @property
+    def odsek(self):
+        return self._odsek
+    
+    @odsek.setter
+    def odsek(self,value):
+        self._odsek = value
         
     @property 
     def ime(self):
