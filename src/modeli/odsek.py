@@ -1,4 +1,5 @@
 from modeli.identifikacija import Identifikacija
+from dekoratori.dekoratori import  wrapisinstance, isnotempty
 
 class Odsek(Identifikacija):
     
@@ -13,11 +14,9 @@ class Odsek(Identifikacija):
         return self._ime 
         
     @ime.setter 
+    @wrapisinstance(str)
+    @isnotempty
     def ime(self, value):
-        if not isinstance(value, str):
-            raise ValueError("Ime mora biti tekstualna vrednost!")
-        if value == "":
-            raise ValueError("Morate uneti neku tekstualnu vrednost!")
         self._ime = value 
         
     @property 
@@ -25,23 +24,20 @@ class Odsek(Identifikacija):
         return self._max_br_radnika 
     
     @max_br_radnika.setter 
+    @wrapisinstance(int)
     def max_br_radnika(self, value):
-        if not isinstance(value, int):
-            raise ValueError("Mora biti broj!")
         if value > 300:
             raise ValueError("Broj radnika mora biti manji od 300")
         self._max_br_radnika = value 
         
     @property
     def opis(self):
-        return self._opis
-    
+        return self._opis  
+
     @opis.setter 
+    @wrapisinstance(str)
+    @isnotempty
     def opis(self, value):
-        if not isinstance(value, str):
-            raise ValueError("Opis mora biti tekstualna vrednost!")
-        if value == "":
-            raise ValueError("Morate uneti neku tekstualnu vrednost ")
         self._opis = value 
         
         

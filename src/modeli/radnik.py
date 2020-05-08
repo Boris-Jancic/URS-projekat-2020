@@ -1,5 +1,6 @@
 from modeli.identifikacija import Identifikacija
 from datetime import datetime
+from dekoratori.dekoratori import  wrapisinstance, isnotempty
 
 class Radnik(Identifikacija):
     
@@ -16,11 +17,9 @@ class Radnik(Identifikacija):
         return self._ime 
     
     @ime.setter 
+    @wrapisinstance(str)
+    @isnotempty
     def ime(self, value):
-        if not isinstance(value, str):
-            raise ValueError("Ime mora biti tekstualna vrednost! ")
-        if value == "":
-            raise ValueError("Morate uneti neku vrednost!")
         self._ime = value 
         
     @property 
@@ -28,11 +27,9 @@ class Radnik(Identifikacija):
         return self._prezime 
     
     @prezime.setter 
+    @wrapisinstance(str)
+    @isnotempty
     def prezime(self, value):
-        if not isinstance(value, str):
-            raise ValueError("Prezime mora biti tekstualna vrednost! ")
-        if value == "":
-            raise ValueError("Morate uneti neku vrednost!")
         self._prezime = value 
         
     @property 
@@ -40,9 +37,8 @@ class Radnik(Identifikacija):
         return self._jmbg 
     
     @jmbg.setter 
+    @wrapisinstance(str)
     def jmbg(self,value):
-        if not isinstance(value, str):
-            raise ValueError("JMBG mora biti tekstualna vrednost ")
         if len(value) != 13:
             raise ValueError("JMBG se mora sastojati od tacno 13 cifara!")
         self._jmbg = value 
@@ -70,17 +66,14 @@ class Radnik(Identifikacija):
         
         self._datum_rodjenja = value
         
-        
-        #mesto rodjenja , drzava rodjenja 
-        
+
     @property
     def mesto_rodjenja(self):
         return self._mesto_rodjenja 
     
     @mesto_rodjenja.setter 
+    @wrapisinstance(str)
     def mesto_rodjenja(self, value):
-        if not isinstance(value, str):
-            raise ValueError("Mora biti tekstualna vrednost!")
         self._mesto_rodjenja = value 
         
     @property 
@@ -88,9 +81,9 @@ class Radnik(Identifikacija):
         return self._drzava_rodjenja 
     
     @drzava_rodjenja.setter 
+    @wrapisinstance(str)
     def drzava_rodjenja(self,value):
-        if not isinstance(value, str):
-            raise ValueError("Mora biti tekstualna vrednost!")
+        self._drzava_rodjenja = value
         
         
     def __str__(self):
