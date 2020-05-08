@@ -2,13 +2,12 @@ from helper.unos import unos as _unos
 
 
 def prikaz():
-    
     opcija = ""
-    
+
     while opcija != "q":
         _opcije()
         opcija = _unos()
-        
+
         if opcija == "1":
             _prikaz_odseka()
         if opcija == "2":
@@ -25,7 +24,6 @@ def prikaz():
             _prikaz_radnika_odseka()
         if opcija == "8":
             _prikaz_delova_odseka()
-            
 
 
 def _opcije():
@@ -40,25 +38,32 @@ def _opcije():
 
 
 def _prikaz_odseka():
-    pass 
+    pass
+
 
 def _dodavanje_odseka():
-    pass 
+    pass
+
 
 def _izmena_odseka():
-    pass 
+    pass
+
 
 def _pretraga_odseka():
-    pass 
+    pass
+
 
 def _sort_po_imenu():
-    pass 
+    pass
+
 
 def _sort_po_maxbr_radnika():
     pass
 
+
 def _prikaz_radnika_odseka():
     pass
+
 
 def _prikaz_delova_odseka():
     pass

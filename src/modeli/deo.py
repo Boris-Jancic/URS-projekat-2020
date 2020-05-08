@@ -1,4 +1,4 @@
-from dekoratori.dekoratori import isgreaterthan, wrapisinstance, isinrange, isnotempty
+from dekoratori.dekoratori import isgreaterthan, wrapisinstance, isnotempty
 from modeli.identifikacija import Identifikacija
 
 

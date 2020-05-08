@@ -1,5 +1,6 @@
 from helper.unos import unos as _unos
 
+
 def prikaz():
     opcija = ""
 
@@ -35,26 +36,34 @@ def _opcije():
     print("[7] Sortiranje kamiona po tezini tereta ")
     print("[8] Prikaz svih automobila na datom kamionu ")
 
+
 def _prikaz_kamiona():
     pass
+
 
 def _dodavanje_kamiona():
     pass
 
+
 def _izmena_kamiona():
     pass
+
 
 def _pretraga_kamiona():
     pass
 
+
 def _sort_po_modelu():
     pass
+
 
 def _sort_po_max_automobila():
     pass
 
-def  _sort_po_tezini_tereta():
+
+def _sort_po_tezini_tereta():
     pass
+
 
 def _prikaz_svih_automobila_na_kamionu():
     pass

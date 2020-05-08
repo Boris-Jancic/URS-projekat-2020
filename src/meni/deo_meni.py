@@ -1,5 +1,6 @@
 from helper.unos import unos as _unos
 
+
 def prikaz():
     opcija = ""
 
@@ -29,20 +30,26 @@ def _opcije():
     print("[5] Sortiranje delova po nazivu ")
     print("[6] Sortiranje delova po tezini ")
 
+
 def _prikaz_delova():
     pass
+
 
 def _dodavanje_delova():
     pass
 
+
 def _izmena_dela():
     pass
+
 
 def _pretraga_dela():
     pass
 
+
 def _sort_po_nazivu():
     pass
 
-def  _sort_po_tezini():
+
+def _sort_po_tezini():
     pass

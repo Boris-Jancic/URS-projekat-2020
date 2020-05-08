@@ -1,6 +1,7 @@
 from dekoratori.dekoratori import isgreaterthan, wrapisinstance, isinrange, isnotempty
 from modeli.identifikacija import Identifikacija
 
+
 class Kamion(Identifikacija):
     def __init__(self, oznaka: str, model: str, max_tezina: float, broj_automobila: int):
         super().__init__(oznaka)
@@ -21,7 +22,6 @@ class Kamion(Identifikacija):
     @property
     def lista_automobila(self):
         return self._lista_automobila
-
 
     @property
     def model(self):

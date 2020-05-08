@@ -1,9 +1,10 @@
 from dekoratori.dekoratori import wrapisinstance
 
+
 class Identifikacija:
     def __init__(self, oznaka: str):
         self.oznaka = oznaka
-    
+
     @property
     def oznaka(self):
         return self._oznaka

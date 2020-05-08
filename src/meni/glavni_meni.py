@@ -2,6 +2,7 @@ from dekoratori.dekoratori import cleanshell_noinput
 from helper.unos import unos as _unos
 
 
+
 @cleanshell_noinput
 def prikaz_menija() -> None:
     opcija = ""

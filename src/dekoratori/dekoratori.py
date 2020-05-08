@@ -1,5 +1,6 @@
-from helper.shell import shell_clear as cls
 from getpass import getpass
+
+from helper.shell import shell_clear as cls
 
 
 def isgreaterthan(argument):

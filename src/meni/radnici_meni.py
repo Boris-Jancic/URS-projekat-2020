@@ -3,11 +3,11 @@ from helper.unos import unos as _unos
 
 def prikaz():
     opcija = ""
-    
+
     while opcija != "q":
         _opcije()
         opcija = _unos()
-        
+
         if opcija == "1":
             _prikaz_radnika()
         if opcija == "2":
@@ -22,7 +22,7 @@ def prikaz():
             _sort_po_prezimenu()
         if opcija == "7":
             _sort_po_datumu()
-         
+
 
 def _opcije():
     print("[1] Prikaz svih radnika ")
@@ -32,24 +32,31 @@ def _opcije():
     print("[5] Sortiranje radnika po imenu ")
     print("[6] Sortiranje radnika po prezimenu ")
     print("[7] Sortiranje radnika po datumu rodjenja ")
-    
+
+
 def _prikaz_radnika():
-    pass 
+    pass
+
 
 def _dodavanje_radnika():
-    pass 
+    pass
+
 
 def _izmena_radnika():
-    pass 
+    pass
+
 
 def _pretraga_radnika():
-    pass 
+    pass
+
 
 def _sort_po_imenu():
-    pass 
+    pass
+
 
 def _sort_po_prezimenu():
-    pass 
+    pass
+
 
 def _sort_po_datumu():
-    pass 
+    pass
