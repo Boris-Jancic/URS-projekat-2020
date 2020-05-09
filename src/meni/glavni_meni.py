@@ -65,7 +65,7 @@ def _prikaz_opcija() -> None:
     print("[3] Rad sa delovima")
     print("[4] Rad sa automobilima")
     print("[5] Rad sa kamionima")
-    print("[6] Ponovno učitavanje podataka iz sistema")
+    print("[6] Ponovno ucitavanje podataka iz sistema")
     print("[q] Izlaz iz aplikacije")
 
 

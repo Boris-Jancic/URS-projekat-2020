@@ -6,14 +6,16 @@ from modeli.identifikacija import Identifikacija
 
 class Radnik(Identifikacija):
 
-    def __init__(self, oznaka, ime, prezime, jmbg, datum_rodjenja, mesto_rodjenja, drzava_rodjenja, odsek):
+    def __init__(self, oznaka, ime, prezime, jmbg, datum_rodjenja, mesto_rodjenja, drzava_rodjenja,odsek_id):
         super().__init__(oznaka)
         self.ime = ime
         self.prezime = prezime
         self.jmbg = jmbg
+        self.datum_rodjenja = datum_rodjenja 
         self.mesto_rodjenja = mesto_rodjenja
         self.drzava_rodjenja = drzava_rodjenja
-        self._odsek = odsek
+        self._odsek = None
+        self.odsek_id = odsek_id
 
     def link_odsek(self, _odsek):
         if _odsek is not None:
@@ -106,6 +108,17 @@ class Radnik(Identifikacija):
     @wrapisinstance(str)
     def drzava_rodjenja(self, value):
         self._drzava_rodjenja = value
+        
+        
+    @property
+    def odsek_id(self):
+        return self.odsek_id
+
+    @odsek_id.setter
+    @wrapisinstance(str)
+    @isnotempty
+    def odsek_id(self, value):
+        self._odsek_id = value
 
     def __str__(self):
         return "Radnik {} {}, JMBG: {}, Datum rodjenja: {}, Mesto rodjenja: {}, Drzava rodjenja: {}".format(self._ime,
