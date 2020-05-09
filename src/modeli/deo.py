@@ -25,22 +25,23 @@ class Deo(Identifikacija):
                                                                          self._materijal)
 
     def unlink_automobil(self):
-        self.automobil.lista_delova.discard(self)
+        if self._automobil is not None:
+            self._automobil.lista_delova.discard(self)
+            self._automobil = None
+
+    def link_automobil(self, _automobil):
+        if _automobil is not None:
+            self.unlink_automobil()
+            self._automobil = _automobil
+            _automobil.lista_delova.add(self)
 
     @property
     def automobil(self):
         return self._automobil
 
     @automobil.setter
-    def automobil(self, _automobil):
-        if _automobil is not None:
-            if self._automobil is not None:
-                self._automobil.lista_delova.discard(self)
-            self._automobil = _automobil
-            _automobil.lista_delova.add(self)
-        else:
-            self._automobil.lista_delova.discard(self)
-            self._automobil = None
+    def automobil(self, value):
+        self._automobil = value
 
     @property
     def naziv(self):

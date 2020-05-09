@@ -12,10 +12,13 @@ class Kamion(Identifikacija):
 
     def link_automobil(self, automobil):
         if automobil is not None:
+            automobil.unlink_kamion()
+            self._lista_automobila.add(automobil)
             automobil.kamion = self
 
     def unlink_automobil(self, automobil):
-        if not (automobil is None) and automobil in self.lista_automobila:
+        if automobil is not None:
+            self._lista_automobila.discard(automobil)
             automobil.kamion = None
 
     @property

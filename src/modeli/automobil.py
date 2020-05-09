@@ -22,14 +22,25 @@ class Automobil(Identifikacija):
 
     def link_deo(self, deo):
         if deo is not None:
+            deo.unlink_automobil()
+            self._lista_delova.add(deo)
             deo.automobil = self
 
     def unlink_deo(self, deo):
-        if not (deo is None) and deo in self.lista_delova:
+        if deo is not None:
+            self.lista_delova.discard(deo)
             deo.automobil = None
 
     def unlink_kamion(self):
-        self.kamion.lista_automobila.discard(self)
+        if self._kamion is not None:
+            self._kamion.lista_automobila.discard(self)
+            self._kamion = None
+
+    def link_kamion(self, _kamion):
+        if _kamion is not None:
+            self.unlink_kamion()
+            self._kamion = _kamion
+            _kamion.lista_automobila.add(self)
 
     @property
     def lista_delova(self):
@@ -40,15 +51,8 @@ class Automobil(Identifikacija):
         return self._kamion
 
     @kamion.setter
-    def kamion(self, _kamion):
-        if _kamion is not None:
-            if self._kamion is not None:
-                self._kamion.lista_automobila.discard(self)
-            self._kamion = _kamion
-            _kamion.lista_automobila.add(self)
-        else:
-            self._kamion.lista_automobila.discard(self)
-            self._kamion = None
+    def kamion(self, value):
+        self._kamion = value
 
     @property
     def kamion_id(self):
