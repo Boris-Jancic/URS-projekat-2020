@@ -9,8 +9,34 @@ class Odsek(Identifikacija):
         self.ime = ime
         self.max_br_radnika = max_br_radnika
         self.opis = opis
-        self.lista_radnika = []
-        self.lista_delova = []
+        self._lista_radnika = set()
+        self._lista_delova = set()
+
+
+    def link_radnik(self, radnik):
+        if radnik is not None:
+            radnik.unlink_odsek()
+            self._lista_radnika.add(radnik)
+            radnik.odsek = self
+    
+    
+    def unlink_radnik(self, radnik):
+        if radnik is not None:
+            self._lista_radnika.discard(radnik)
+            radnik.odsek = None
+            
+            
+    def link_deo(self, deo):
+        if deo is not None:
+            deo.unlink_odsek()
+            self._lista_delova.add(deo)
+            deo.odsek = self
+    
+    def unlink_deo(self, deo):
+        if deo is not None:
+            self._lista_delova.discard(deo)
+            deo.odsek = None
+    
 
     def link_deo(self, deo):
         if deo is not None:

@@ -13,7 +13,19 @@ class Radnik(Identifikacija):
         self.jmbg = jmbg
         self.mesto_rodjenja = mesto_rodjenja
         self.drzava_rodjenja = drzava_rodjenja
-        self.odsek = odsek
+        self._odsek = odsek
+
+    def link_odsek(self, _odsek):
+        if _odsek is not None:
+            self.unlink_odsek()
+            self._odsek = _odsek
+            _odsek.lista_radnika.add(self)
+
+    def unlink_odsek(self):
+        if self._odsek is not None:
+            self._odsek.lista_radnika.discard(self)
+            self._odsek = None
+
 
     @property
     def odsek(self):
