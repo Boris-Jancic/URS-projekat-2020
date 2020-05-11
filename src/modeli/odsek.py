@@ -4,13 +4,24 @@ from modeli.identifikacija import Identifikacija
 
 class Odsek(Identifikacija):
 
-    def __init__(self, oznaka, ime, max_br_radnika, opis, lista_radnika, lista_delova):
+    def __init__(self, oznaka, ime, max_br_radnika, opis):
         super().__init__(oznaka)
         self.ime = ime
         self.max_br_radnika = max_br_radnika
         self.opis = opis
         self.lista_radnika = []
         self.lista_delova = []
+
+    def link_deo(self, deo):
+        if deo is not None:
+            deo.unlink_odsek()
+            self._lista_delova.append(deo)
+            deo.odsek = self
+
+    def unlink_deo(self, deo):
+        if deo is not None:
+            self.lista_delova.discard(deo)
+            deo.odsek = None
 
     @property
     def lista_radnika(self):
@@ -60,5 +71,5 @@ class Odsek(Identifikacija):
         self._opis = value
 
     def __str__(self):
-        return "Ime odseka: {}, maksimalan broj radnika: {}, opis: {}".format(self._ime, self._max_br_radnika,
+        return "Ime odseka: {}, maksimalan broj radnika: {}, opis: {}, lista delova: ".format(self._ime, self._max_br_radnika,
                                                                               self._opis)
