@@ -16,13 +16,25 @@ class Deo(Identifikacija):
         self.pod_delovi = pod_delovi
         self.materijal = materijal
         self._automobil = None
+        self._odsek = None
 
     def __str__(self):
-        return "{0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}, {8}, {9}".format(self._oznaka, self._naziv,
+        return "{0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}, {8}, {9}, {10}".format(self._oznaka, self._naziv,
                                                                          self._duzina, self._sirina,
                                                                          self._visina, self._tezina,
                                                                          self._opis, self._broj, self._pod_delovi,
-                                                                         self._materijal)
+                                                                         self._materijal, self._odsek)
+
+    def link_odsek(self, _odsek):
+        if self._odsek is not None:
+            self.unlink_odsek()
+            self._odsek = _odsek
+            _odsek.lista_delova.append(self)
+
+    def unlink_odsek(self):
+        if self._odsek is not None:
+            self._odsek.lista_delova.remove(self)
+            self._odsek = None
 
     def unlink_automobil(self):
         if self._automobil is not None:
@@ -42,6 +54,15 @@ class Deo(Identifikacija):
     @automobil.setter
     def automobil(self, value):
         self._automobil = value
+
+    @property
+    def odsek(self):
+        return self._odsek
+
+    @odsek.setter
+    def odsek(self, value):
+        self._odsek = value
+
 
     @property
     def naziv(self):
