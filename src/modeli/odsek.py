@@ -37,18 +37,6 @@ class Odsek(Identifikacija):
             self._lista_delova.discard(deo)
             deo.odsek = None
     
-
-    def link_deo(self, deo):
-        if deo is not None:
-            deo.unlink_odsek()
-            self._lista_delova.append(deo)
-            deo.odsek = self
-
-    def unlink_deo(self, deo):
-        if deo is not None:
-            self.lista_delova.discard(deo)
-            deo.odsek = None
-
     @property
     def lista_radnika(self):
         return self._lista_radnika
