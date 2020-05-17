@@ -1,14 +1,11 @@
 from dekoratori.dekoratori import cleanshell, cleanshell_noinput
 from helper.unos import unos as _unos
-
-__lista_automobila = []
+from io_loader.automobil_io import AutomobilLoader
+from modeli.automobil import Automobil
 
 
 @cleanshell_noinput
-def prikaz_menija(lista_automobila) -> None:
-    global __lista_automobila
-    __lista_automobila = lista_automobila
-
+def prikaz_menija() -> None:
     opcija = ""
     while opcija != "q":
         _prikaz_opcija()
@@ -42,7 +39,8 @@ def _prikaz_opcija() -> None:
 
 @cleanshell
 def _prikaz_svih_automobila() -> None:
-    pass
+    for x in AutomobilLoader.get_loaded_cars():
+        print(x)
 
 
 @cleanshell
