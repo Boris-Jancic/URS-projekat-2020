@@ -1,5 +1,6 @@
 from dekoratori.dekoratori import cleanshell_noinput
 from helper.unos import unos as _unos
+from helper.unos import upis_u_fajl
 
 
 
@@ -21,6 +22,7 @@ def prikaz_menija() -> None:
             _rad_sa_kamionima()
         elif opcija == "6":
             _ponovno_ucitavanje_podataka()
+    upis_u_fajl()
 
 
 @cleanshell_noinput
