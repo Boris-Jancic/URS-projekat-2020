@@ -16,7 +16,7 @@ def prikaz_menija() -> None:
         elif opcija == "3":
             _rad_sa_delovima()
         elif opcija == "4":
-            _rad_sa_automobilima([])  # placeholder list
+            _rad_sa_automobilima()
         elif opcija == "5":
             _rad_sa_kamionima()
         elif opcija == "6":
@@ -43,9 +43,9 @@ def _rad_sa_delovima():
 
 
 @cleanshell_noinput
-def _rad_sa_automobilima(lista_automobila):
+def _rad_sa_automobilima():
     from meni.automobili_meni import prikaz_menija as prikazi_meni
-    prikazi_meni(lista_automobila)
+    prikazi_meni()
 
 
 @cleanshell_noinput
