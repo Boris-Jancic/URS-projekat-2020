@@ -16,6 +16,15 @@ class Automobil(Identifikacija):
         self.kamion_id = kamion_id
         self._lista_delova = set()
 
+    def to_data(self) -> str:
+        if self._kamion is not None:
+            k_oznaka = self._kamion.oznaka
+        else:
+            k_oznaka = "Empty"
+        return "|".join(
+            [self.oznaka, str(self.duzina), str(self.sirina), str(self.visina), str(self.tezina), self.model,
+             str(self._broj_vrata), k_oznaka])
+
     def __str__(self):
         return f"Automobil modela {self._model} dimenzija(d,s,v)={self._duzina}x{self._sirina}x{self._visina}m, " + \
                f"tezine {self._tezina}kg sa {self._broj_vrata} vrata"
