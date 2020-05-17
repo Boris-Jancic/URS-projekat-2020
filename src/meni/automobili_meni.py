@@ -1,4 +1,5 @@
 from dekoratori.dekoratori import cleanshell, cleanshell_noinput
+from helper.oznaka_validator import validacija_oznake_za_automobil, OznakaError
 from helper.unos import unos as _unos
 from io_loader.automobil_io import AutomobilLoader
 from modeli.automobil import Automobil
@@ -45,7 +46,23 @@ def _prikaz_svih_automobila() -> None:
 
 @cleanshell
 def _dodavanje_novog_automobila() -> None:
-    pass
+    try:
+        oznaka = input("Unesite oznaku:").lower()
+        duzina = float(input("Unesite duzinu:"))
+        sirina = float(input("Unesite sirinu:"))
+        visina = float(input("Unesite visinu:"))
+        tezina = float(input("Unesite tezinu:"))
+        model = input("Unesite model:")
+        broj_vrata = int(input("Unesite broj vrata:"))
+        validacija_oznake_za_automobil(oznaka)
+        automobil = Automobil(oznaka, duzina, sirina, visina, tezina, model, broj_vrata, "Empty")
+        AutomobilLoader.get_loaded_cars().add(automobil)
+
+    except ValueError:
+        print("Neispravni podaci, pokusajte ponovo!")
+
+    except OznakaError:
+        print("Uneta oznaka je vec iskoriscena!")
 
 
 @cleanshell
