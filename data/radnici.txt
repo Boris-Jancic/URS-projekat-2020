@@ -1,0 +1,3 @@
+123456|Petar|Petrovic|1234567899876|12/12/1992|Sremska Mitrovica|Srbija|Empty
+654321|Marko|Markovic|9876543211234|06/06/1997|Novi Sad|Srbija|Empty
+555555|Lazar|Lazarevic|7777777777777|04/12/1995|Novi Sad|Srbija|Empty

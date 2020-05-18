@@ -29,6 +29,13 @@ class Radnik(Identifikacija):
             self._odsek = None
 
 
+    def to_data(self):
+        if self._odsek is not None:
+            odsek_oznaka = self._odsek.oznaka
+        else:
+            odsek_oznaka = "Empty"
+        return "|".join([self.oznaka, self.ime, self.prezime, self.jmbg, self.datum_rodjenja, self.mesto_rodjenja, self.drzava_rodjenja, odsek_oznaka])
+
     @property
     def odsek(self):
         return self._odsek

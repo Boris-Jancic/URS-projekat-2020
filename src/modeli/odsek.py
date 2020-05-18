@@ -13,6 +13,9 @@ class Odsek(Identifikacija):
         self._lista_delova = set()
 
 
+    def to_data(self):
+        return "|".join([self.oznaka, self.ime, str(self.max_br_radnika), self.opis])
+
     def link_radnik(self, radnik):
         if radnik is not None:
             radnik.unlink_odsek()
