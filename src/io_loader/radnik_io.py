@@ -14,7 +14,7 @@ def load():
             ime = split[1]
             prezime = split[2]
             jmbg = split[3]
-            datum_rodjenja = datetime.strptime(split[4], "%d/%m/%Y").date()
+            datum_rodjenja = split[4]
             mesto_rodjenja = split[5]
             drzava_rodjenja = split[6]
             odsek_id = split[7]
