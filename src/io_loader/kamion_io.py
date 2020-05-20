@@ -9,7 +9,7 @@ def load():
     with open(FILE_PATH, "r") as file:
         lines = file.readlines()
         for line in lines:
-            split = line.split("|")
+            split = line.strip().split("|")
             oznaka = split[0]
             model = split[1]
             max_tezina = float(split[2])

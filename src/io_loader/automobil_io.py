@@ -9,7 +9,7 @@ def load():
     with open(FILE_PATH, "r") as _file:
         lines = _file.readlines()
         for line in lines:
-            _split = line.split("|")
+            _split = line.strip().split("|")
             oznaka = _split[0]
             duzina = float(_split[1])
             sirina = float(_split[2])

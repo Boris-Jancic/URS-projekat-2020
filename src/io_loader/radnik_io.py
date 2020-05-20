@@ -9,7 +9,7 @@ def load():
     with open(FILE_PATH, "r") as file:
         lines = file.readlines()
         for line in lines:
-            split = line.split("|")
+            split = line.strip().split("|")
             oznaka = split[0]
             ime = split[1]
             prezime = split[2]
