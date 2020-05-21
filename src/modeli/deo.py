@@ -4,7 +4,7 @@ from modeli.identifikacija import Identifikacija
 
 class Deo(Identifikacija):
     def __init__(self, oznaka: str, naziv: str, duzina: float, sirina: float, visina: float, \
-                 tezina: float, opis: str, broj: int, pod_delovi: int, materijal: str):
+                 tezina: float, opis: str, broj: int, pod_delovi: int, materijal: str, odsek_id: str):
         super().__init__(oznaka)
         self.naziv = naziv
         self.duzina = duzina
@@ -15,6 +15,7 @@ class Deo(Identifikacija):
         self.broj = broj
         self.pod_delovi = pod_delovi
         self.materijal = materijal
+        self.odsek_id = odsek_id
         self._automobil = None
         self._odsek = None
 
@@ -24,6 +25,15 @@ class Deo(Identifikacija):
                                                                          self._visina, self._tezina,
                                                                          self._opis, self._broj, self._pod_delovi,
                                                                          self._materijal, self._odsek)
+
+    def to_data(self):
+        if self._odsek is not None:
+            o_oznaka = self._odsek.oznaka
+        else:
+            o_oznaka = "Empty"
+        return "|".join([str(self.oznaka), str(self.naziv), str(self.duzina), str(self.sirina),
+                         str(self.visina), str(self.tezina), str(self.opis), str(self.broj), str(self.pod_delovi),
+                         str(self.materijal), o_oznaka])
 
     def link_odsek(self, _odsek):
         if self._odsek is not None:
