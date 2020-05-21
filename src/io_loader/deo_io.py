@@ -17,12 +17,13 @@ def load():
             visina = float(_split[4])
             tezina = float(_split[5])
             opis = _split[6]
-            pod_delovi = _split[7]
-            materijal = _split[8]
-            odsek_id = _split[9]
+            broj = _split[7]
+            pod_delovi = int(_split[8])
+            materijal = _split[9]
+            odsek_id = _split[10]
 
             deo = Deo(oznaka, naziv, duzina, sirina, visina, tezina,
-                      opis, pod_delovi, materijal, odsek_id)
+                      opis, broj, pod_delovi, materijal, odsek_id)
             delovi.add(deo)
 
     return delovi
