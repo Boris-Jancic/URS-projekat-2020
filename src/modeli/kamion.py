@@ -10,6 +10,10 @@ class Kamion(Identifikacija):
         self.broj_automobila = broj_automobila
         self._lista_automobila = set()
 
+
+    def to_data(self):
+        return "|".join([str(self.oznaka), str(self.model), str(self.max_tezina), str(self.broj_automobila)])
+
     def link_automobil(self, automobil):
         if automobil is not None:
             automobil.unlink_kamion()
@@ -40,7 +44,7 @@ class Kamion(Identifikacija):
         return self._max_tezina
 
     @max_tezina.setter
-    @wrapisinstance(int)
+    @wrapisinstance(float)
     @isgreaterthan(0)
     def max_tezina(self, max_tezina):
         self._max_tezina = max_tezina
