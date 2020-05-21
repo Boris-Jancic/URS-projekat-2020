@@ -1,4 +1,7 @@
+from helper.oznaka_validator import OznakaError, validacija_oznake_za_deo
 from helper.unos import unos as _unos
+from io_loader.deo_io import DeoLoader
+from modeli.deo import Deo
 
 
 def prikaz():
@@ -23,7 +26,7 @@ def prikaz():
 
 
 def _opcije():
-    print("[1] Prikaz svih delova ")
+    print("\n[1] Prikaz svih delova ")
     print("[2] Dodavanje novog dela ")
     print("[3] Izmena vrednosti dela ")
     print("[4] Pretraga dela")
@@ -32,11 +35,33 @@ def _opcije():
 
 
 def _prikaz_delova():
-    pass
-
+    for x in DeoLoader.get_loaded_parts():
+        print(x)
 
 def _dodavanje_delova():
-    pass
+    try:
+        oznaka = input("\nUnesite oznaku:").lower()
+        naziv = input("Unesite naziv:").lower()
+        duzina = float(input("Unesite duzinu:"))
+        sirina = float(input("Unesite sirinu:"))
+        visina = float(input("Unesite visinu:"))
+        tezina = float(input("Unesite tezinu:"))
+        opis = input("Unesite opis:").lower()
+        broj = int(input("Unesite broj delova:"))
+        pod_delovi = int(input("Unesite pod delove:"))
+        materijal = input("Unesite materijal:").lower()
+        validacija_oznake_za_deo(oznaka)
+
+        deo = Deo(oznaka, naziv, duzina, sirina, visina, tezina, opis, broj, pod_delovi, materijal, "Empty")
+        DeoLoader.get_loaded_parts().add(deo)
+
+    except ValueError:
+        print("Neispravni podaci, pokusajte ponovo!")
+
+    except OznakaError:
+        print("Uneta oznaka je vec iskoriscena!")
+
+
 
 
 def _izmena_dela():
