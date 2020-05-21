@@ -1,4 +1,7 @@
+from helper.oznaka_validator import OznakaError, validacija_oznake_za_kamion
 from helper.unos import unos as _unos
+from io_loader.kamion_io import KamioniLoader
+from modeli.kamion import Kamion
 
 
 def prikaz():
@@ -27,7 +30,7 @@ def prikaz():
 
 
 def _opcije():
-    print("[1] Prikaz svih kamiona ")
+    print("\n[1] Prikaz svih kamiona ")
     print("[2] Dodavanje novog kamiona ")
     print("[3] Izmena vrednosti kamiona ")
     print("[4] Pretraga kamiona")
@@ -38,11 +41,26 @@ def _opcije():
 
 
 def _prikaz_kamiona():
-    pass
+    for x in KamioniLoader.get_loaded_trucks():
+        print(x)
 
 
 def _dodavanje_kamiona():
-    pass
+    try:
+        oznaka = input("\nUnesite oznaku:").lower()
+        model = input("Unesite model:")
+        tezina = float(input("Unesite tezinu:"))
+        broj_automobila = int(input("Unesite broj automobila:"))
+        validacija_oznake_za_kamion(oznaka)
+
+        kamion = Kamion(oznaka, model, tezina, broj_automobila)
+        KamioniLoader.get_loaded_trucks().add(kamion)
+
+    except ValueError:
+        print("Neispravni podaci, pokusajte ponovo!")
+
+    except OznakaError:
+        print("Uneta oznaka je vec iskoriscena!")
 
 
 def _izmena_kamiona():
