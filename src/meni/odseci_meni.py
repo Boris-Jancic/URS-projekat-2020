@@ -1,5 +1,7 @@
 from helper.unos import unos as _unos
-
+from io_loader.odsek_io import OdsekLoader
+from helper.oznaka_validator import OznakaError
+from modeli.odsek import Odsek
 
 def prikaz():
     opcija = ""
@@ -38,11 +40,25 @@ def _opcije():
 
 
 def _prikaz_odseka():
-    pass
+    for i in OdsekLoader.get_ucitani_odseci():
+        print(i)
 
 
 def _dodavanje_odseka():
-    pass
+    try:
+        oznaka = input("Unesite oznaku: ")
+        ime = input("Unesite ime: ")
+        max_br_radnika = eval(input("Unesite maksimalni broj radnika: ")) 
+        opis = input("Unesite opis odseka: ")
+        
+        odsek = Odsek(oznaka, ime, max_br_radnika, opis)
+        OdsekLoader.get_ucitani_odseci().add(odsek)
+        
+    except ValueError:
+        print("Neispravni podaci, pokusajte ponovo!")
+
+    except OznakaError:
+        print("Uneta oznaka je vec iskoriscena!")
 
 
 def _izmena_odseka():
