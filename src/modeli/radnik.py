@@ -119,7 +119,7 @@ class Radnik(Identifikacija):
         
     @property
     def odsek_id(self):
-        return self.odsek_id
+        return self._odsek_id
 
     @odsek_id.setter
     @wrapisinstance(str)

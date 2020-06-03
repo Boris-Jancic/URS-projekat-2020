@@ -1,3 +1,3 @@
 565656|Centar|250|Glavni odsek
-787878|Guma|100|Odsek za proizvodnju tockova 
+787878|Guma|100|Odsek za proizvodnju tockova
 121212|Sedista|150|Odsek za pravljenje sedista

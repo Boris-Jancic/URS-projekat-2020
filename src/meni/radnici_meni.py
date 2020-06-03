@@ -37,8 +37,9 @@ def _opcije():
 
 
 def _prikaz_radnika():
-    for i in RadnikLoader.get_ucitani_radnici():
-        print(i)
+     for i in RadnikLoader.get_ucitani_radnici():
+         print(i)
+    
 
 
 def _dodavanje_radnika():
